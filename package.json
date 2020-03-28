@@ -1,0 +1,26 @@
+{
+  "name": "typescript-monorepo-template",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "index.js",
+  "private": "true",
+  "repository": "https://github.com/araki-packages/typescript-monorepo-template.git",
+  "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "@team-lab/eslint-config": "^0.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "random-seed": "^0.3.0",
+    "rimraf": "^3.0.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
