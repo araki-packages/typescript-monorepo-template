@@ -1,4 +1,11 @@
-import h, { JSX } from '@araki-packages/sandbox-monorepo-core';
+import h from '@araki-packages/sandbox-monorepo-core';
+export namespace JSX {
+  interface Element { 
+  }
+  interface IntrinsicElements { 
+    div: string | undefined; 
+  }
+}
 
 const a = () => {
   return (
