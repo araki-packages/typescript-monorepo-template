@@ -2,8 +2,7 @@ const inquirer = require('inquirer');
 const C = require('./constants');
 console.log(C.PACKAGES)
 module.exports = () => {
-  return inquirer.prompt([
-    {
+  return inquirer.prompt([ {
       type: 'checkbox',
       message: 'your are select build packages',
       name: 'packages',

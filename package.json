@@ -3,6 +3,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build:select": "node scripts/tasks/childProcess.js",
     "build:all": "node scripts/tasks/index.js"
   },
   "private": true,

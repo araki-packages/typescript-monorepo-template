@@ -1,23 +1,17 @@
-const removeDir = require('../rimraf/index');
-const buildTask = require('../rollup/generator');
 const packageSelect = require('./packageCheck');
+const { exec } = require('child_process');
+
+function npm(...args) {
+    return exec(['npm', ...args].join(' '), (error, stdout, stderror) => {
+      console.log(error || stdout || stderror);
+    });
+}
 
 const main = async () => {
   const { packages } = await packageSelect();
-  console.log(packages);
-  try {
-    await removeDir(packages);
-    console.log('REMOVE DIR PROCESS SUCCESS')
-    await buildTask(packages);
-    console.log('BUILD PROCESS SUCCESS');
-  } catch (e) {
-    throw e;
+  for (let i = 0; i < packages.length; i++) {
+    npm('run', 'build:select', packages[i]);
   }
-}
-main()
-  .then(() => {
-    console.log('ALL TASK SUCCESS');
-  })
-  .catch((err) => {
-    throw err;
-  });
+};
+
+main();
