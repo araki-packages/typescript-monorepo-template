@@ -1,8 +1,23 @@
 {
-  "name": "@packagename/core-dependence-package",
-  "version": "1.0.0",
+  "name": "core",
+  "version": "1.0.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "typescript-monorepo-template"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/"
+  ],
+  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki",
+  "bugs": "https://github.com/araki-packages/typescript-monorepo-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/araki-packages/typescript-monorepo-template",
+    "directory": "packages/core-dependence-package"
+  },
   "license": "MIT"
 }
