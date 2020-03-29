@@ -6,6 +6,8 @@
     "build:all": "node scripts/tasks/index.js"
   },
   "private": true,
+  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki",
+  "bugs": "https://github.com/araki-packages/typescript-monorepo-template/issues",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
