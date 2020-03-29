@@ -1,9 +1,10 @@
 const removeDir = require('../rimraf/index');
 const buildTask = require('../rollup/generator');
-const C = require('./constants');
+const packageSelect = require('./packageCheck');
 
-const packages = C.PACKAGES;
 const main = async () => {
+  const { packages } = await packageSelect();
+  console.log(packages);
   try {
     await removeDir(packages);
     console.log('REMOVE DIR PROCESS SUCCESS')
