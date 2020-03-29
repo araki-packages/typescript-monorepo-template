@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
 const C = require('./constants');
-console.log(C.PACKAGES)
 module.exports = () => {
   return inquirer.prompt([ {
       type: 'checkbox',
