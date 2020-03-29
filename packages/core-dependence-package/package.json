@@ -1,6 +1,6 @@
 {
   "name": "@araki-packages/sandbox-monorepo-core-dependence-package",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -12,8 +12,8 @@
     "README.md",
     "dist/"
   ],
-  "publishConfig": { 
-    "registry": "https://npm.pkg.github.com/" 
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki",
   "bugs": "https://github.com/araki-packages/typescript-monorepo-template/issues",
