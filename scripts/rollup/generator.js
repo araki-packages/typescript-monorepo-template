@@ -20,7 +20,7 @@ const generateRollupInput = (options) => ({
     const ignore = options.ignoreNodeModules ? isNodeModules : false;
     if (ignore) {
       console.log(`-- ${id} `);
-    }else {
+    } else {
       console.log(`++ ${id} `);
     }
     return ignore;
@@ -38,7 +38,7 @@ const generateRollupOutputList = (options) => {
 };
 
 const build = async (PACKAGES) => {
-  const packageEntries = PACKAGES.map((package) =>  path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
+  const packageEntries = PACKAGES.map((package) => path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
   try {
     return await Promise.all(
       packageEntries.map(async (value) => {
