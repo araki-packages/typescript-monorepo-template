@@ -1,3 +1,10 @@
+export namespace JSX {
+  interface Element { 
+  }
+  interface IntrinsicElements { 
+    div: string | undefined; 
+  }
+}
 export default (element: keyof HTMLElementTagNameMap, props: {[key: string]: any} | null, ...args: any[]): HTMLElement => {
   const elWrap = document.createElement(element || null);
   props && Object.keys(props).forEach((key) => {
