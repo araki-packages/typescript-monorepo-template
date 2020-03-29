@@ -1,4 +1,4 @@
-const C = require('../taskRunner/constants');
+const C = require('../tasks/constants');
 const path = require('path');
 const rimraf = require('rimraf');
 

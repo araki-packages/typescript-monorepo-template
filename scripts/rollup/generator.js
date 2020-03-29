@@ -1,10 +1,33 @@
 const rollup = require('rollup');
 const resolve = require('@rollup/plugin-node-resolve');
 const typescript = require('@rollup/plugin-typescript');
+const dts = require('rollup-plugin-dts').default;
 const commonjs = require('@rollup/plugin-commonjs');
-const C = require('../taskRunner/constants');
+const C = require('../tasks/constants');
 const path = require('path');
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+
+const generateAtTypesRollupInput = (options) => ({
+  input: options.input,
+  plugins: [
+    dts(),
+  ],
+  external(id) {
+    const isNodeModules = !(/\.+\//.test(id));
+    const ignore = options.ignoreNodeModules ? isNodeModules : false;
+    if (ignore) {
+      console.log(`-- ${id} `);
+    } else {
+      console.log(`++ ${id} `);
+    }
+    return ignore;
+  },
+});
+
+const generateAtTypesRollupOutput = (options) => ({
+  file: path.resolve(options.projectRoot, 'dist', 'main.d.ts'),
+  format: 'esm',
+});
 
 const generateRollupInput = (options) => ({
   input: options.input,
@@ -28,17 +51,39 @@ const generateRollupInput = (options) => ({
 });
 
 const generateRollupOutputList = (options) => {
-  return [{
-    file: path.resolve(options.projectRoot, 'dist', 'main.cjs.js'),
-    format: 'cjs'
-  }, {
-    file: path.resolve(options.projectRoot, 'dist', 'main.esm.js'),
-    format: 'es',
-  }];
+  return [
+    {
+      file: path.resolve(options.projectRoot, 'dist', 'main.cjs.js'),
+      format: 'cjs',
+    }, {
+      file: path.resolve(options.projectRoot, 'dist', 'main.esm.js'),
+      format: 'es',
+    },
+  ];
 };
 
-const build = async (PACKAGES) => {
-  const packageEntries = PACKAGES.map((package) => path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
+const buildAtTypes = async (packages) => {
+  const packageEntries = packages.map((package) => path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
+  try {
+    return await Promise.all(
+      packageEntries.map(async (value) => {
+        const build = await rollup.rollup(generateAtTypesRollupInput({
+          input: value,
+          ignoreNodeModules: true
+        }));
+        const result = await build.write(generateAtTypesRollupOutput({
+          projectRoot: path.dirname(value),
+        }))
+        return result;
+      })
+    )
+  } catch (e) {
+    throw e;
+  }
+};
+
+const buildSource = async (packages) => {
+  const packageEntries = packages.map((package) => path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
   try {
     return await Promise.all(
       packageEntries.map(async (value) => {
@@ -60,4 +105,12 @@ const build = async (PACKAGES) => {
   }
 }
 
-module.exports = build;
+
+const runner = async (packages) => {
+  return await Promise.all([
+    buildAtTypes(packages),
+    buildSource(packages),
+  ])
+}
+
+module.exports = runner;
