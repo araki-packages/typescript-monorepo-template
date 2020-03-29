@@ -1,17 +1,11 @@
 {
-  "name": "typescript-monorepo-template",
-  "version": "1.0.0",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build:all": "node scripts/tasks/index.js"
   },
-  "main": "index.js",
   "private": true,
-  "repository": "https://github.com/araki-packages/typescript-monorepo-template.git",
-  "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
-  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
