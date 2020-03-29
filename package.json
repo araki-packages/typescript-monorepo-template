@@ -4,14 +4,16 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build:all": "node scripts/taskRunner/index.js"
+  },
   "main": "index.js",
-  "private": "true",
+  "private": true,
   "repository": "https://github.com/araki-packages/typescript-monorepo-template.git",
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-multi-entry": "^3.0.0",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-typescript": "^4.0.0",
     "@team-lab/eslint-config": "^0.1.1",

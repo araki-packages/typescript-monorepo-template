@@ -1,9 +1,8 @@
 const rollup = require('rollup');
-// const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('@rollup/plugin-node-resolve');
-// const babel = require('rollup-plugin-babel');
 const typescript = require('@rollup/plugin-typescript');
-const DEVICE = require('./device');
+const commonjs = require('@rollup/plugin-commonjs');
+const C = require('../taskRunner/constants');
 const path = require('path');
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
@@ -12,10 +11,9 @@ const generateRollupInput = (options) => ({
   plugins: [
     resolve({ extensions }),
     typescript({
-      tsconfig: path.resolve(DEVICE.PROJECT_ROOT, 'tsconfig.json'),
+      tsconfig: path.resolve(C.PROJECT_ROOT, 'tsconfig.json'),
     }),
-    //commonjs(),
-    // babel({ extensions, include: [pkg.buildSettings.include]}),
+    commonjs(),
   ],
   external(id) {
     const isNodeModules = !(/\.+\//.test(id));
@@ -39,23 +37,27 @@ const generateRollupOutputList = (options) => {
   }];
 };
 
-(() => {
-  
-  const packageEntries = DEVICE.PACKAGES.map((package) =>  path.resolve(DEVICE.PROJECT_ROOT, 'packages', package, 'index.ts'));
-  packageEntries.forEach(async (value) => {
-    try{
-      const build = await rollup.rollup(generateRollupInput({
-        input: value,
-        ignoreNodeModules: true
-      }));
-      generateRollupOutputList({
-        projectRoot: path.dirname(value),
-      })
-        .forEach((output) => {
-          build.write(output);
+const build = async (PACKAGES) => {
+  const packageEntries = PACKAGES.map((package) =>  path.resolve(C.PROJECT_ROOT, 'packages', package, 'index.ts'));
+  try {
+    return await Promise.all(
+      packageEntries.map(async (value) => {
+        const build = await rollup.rollup(generateRollupInput({
+          input: value,
+          ignoreNodeModules: true
+        }));
+        const outputList = generateRollupOutputList({
+          projectRoot: path.dirname(value),
         });
-    } catch (err) {
-      throw err;
-    }
-  })
-})();
+        const result = await Promise.all(
+          outputList.map(output => build.write(output))
+        );
+        return result;
+      })
+    );
+  } catch (err) {
+    throw err;
+  }
+}
+
+module.exports = build;
