@@ -21,6 +21,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "ts-loader": "^7.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "webpack-dev-server": "^3.10.3"

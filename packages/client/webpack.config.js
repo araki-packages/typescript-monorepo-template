@@ -4,9 +4,7 @@ const path = require('path');
 
 /** @type {Parameters<typeof webpack>[0][0]} */
 module.exports = { 
-  entry: {
-    renderer: path.resolve('src/entry.ts')
-  },
+  entry: { renderer: path.resolve('src/entry.ts') },
   target: 'web',
   output: {
     path: path.resolve('dist'),
@@ -16,18 +14,14 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: [
-          { loader: 'ts-loader', }
-        ],
+        use: [ { loader: 'ts-loader' } ],
       },
       {
         test: /\.(fpc|mps|mpb|cxc|cxs|cxb|tga|glsl|vs|fs|jpg|png|gif|obj|mtl)$/,
         use: [ 
           { 
             loader: 'file-loader',
-            options: {
-              name: "[name].[ext]",
-            }
+            options: { name: "[name].[ext]" }
           } 
         ],
       },
@@ -36,21 +30,14 @@ module.exports = {
         use: [ 
           { 
             loader: 'file-loader',
-            options: {
-              name: "[name].[ext]",
-            }
+            options: { name: "[name].[ext]" }
           } 
         ],
       }
     ]
   },
   resolve: {
-    extensions: [
-      '.ts',
-      '.tsx',
-      '.js',
-      '.jsx',
-    ],
+    extensions: [ '.ts', '.tsx', '.js', '.jsx' ],
   },
   plugins: [
     new HtmlPlugin({
