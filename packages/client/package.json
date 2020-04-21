@@ -20,7 +20,10 @@
     "directory": "packages/client"
   },
   "license": "MIT",
-  "devDependencies": {
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
     "ts-loader": "^7.0.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",

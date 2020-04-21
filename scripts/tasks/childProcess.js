@@ -7,7 +7,7 @@ const main = async (...args) => {
   await Promise.all([
      buildTask(package, 'cjs'),
      buildTask(package, 'esm'),
-     buildTask(package, 'dts')
+     buildTask(package, 'dts'),
   ]);
 };
 main(...process.argv);

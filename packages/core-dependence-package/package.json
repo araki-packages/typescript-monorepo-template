@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki",
   "bugs": "https://github.com/araki-packages/typescript-monorepo-template/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/araki-packages/typescript-monorepo-template",
-    "directory": "packages/core-dependence-package"
-  },
-  "license": "MIT"
+  "repository": "https://github.com/araki-packages/typescript-monorepo-template",
+  "license": "MIT",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/axios-mock-adapter": "^1.10.0",
+    "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.18.1"
+  }
 }
