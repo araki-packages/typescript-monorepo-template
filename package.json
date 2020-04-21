@@ -4,7 +4,7 @@
   ],
   "scripts": {
     "build:select": "node scripts/tasks/childProcess.js",
-    "build:all": "node scripts/tasks/index.js"
+    "build:all": "node scripts/tasks/spawnBuild.js"
   },
   "private": true,
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki",
@@ -24,6 +24,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.2.0",
     "rollup-plugin-dts": "^1.3.0",
+    "table": "^5.4.6",
     "tsc": "^1.20150623.0",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
