@@ -5,9 +5,9 @@
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/core#readme",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "dist/core.js",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [

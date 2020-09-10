@@ -5,9 +5,9 @@
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/frontend#readme",
   "license": "MIT",
-  "main": "lib/frontend.js",
+  "main": "dist/main.js",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
@@ -27,6 +27,12 @@
     "url": "https://github.com/araki-packages/typescript-monorepo-template/issues"
   },
   "devDependencies": {
-    "@araki-packages/core": "^0.0.2"
+    "@araki-packages/core": "^0.0.2",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
