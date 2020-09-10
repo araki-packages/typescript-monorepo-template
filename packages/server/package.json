@@ -1,6 +1,6 @@
 {
   "name": "@araki-packages/server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
   "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/server#readme",
@@ -24,6 +24,6 @@
     "url": "https://github.com/araki-packages/typescript-monorepo-template/issues"
   },
   "devDependencies": {
-    "@araki-packages/core": "^0.0.1"
+    "@araki-packages/core": "^0.0.2"
   }
 }
