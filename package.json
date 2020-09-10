@@ -20,6 +20,7 @@
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.20.1",
     "inquirer": "^7.1.0",
+    "lerna": "^3.22.1",
     "random-seed": "^0.3.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.2.0",
@@ -29,5 +30,6 @@
   },
   "devEngines": {
     "node": "12.x"
-  }
+  },
+  "name": "typescript-monorepo-template"
 }

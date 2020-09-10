@@ -1,11 +1,11 @@
 {
-  "name": "@araki-packages/core",
+  "name": "@araki-packages/server",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
-  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/core#readme",
+  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/server#readme",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "lib/server.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -18,9 +18,12 @@
     "url": "git+https://github.com/araki-packages/typescript-monorepo-template.git"
   },
   "scripts": {
-    "test": "echo 'test core'"
+    "test": "echo 'test server'"
   },
   "bugs": {
     "url": "https://github.com/araki-packages/typescript-monorepo-template/issues"
+  },
+  "devDependencies": {
+    "@araki-packages/core": "^0.0.1"
   }
 }

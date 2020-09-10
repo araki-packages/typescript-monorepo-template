@@ -1,11 +1,11 @@
 {
-  "name": "@araki-packages/core",
+  "name": "@araki-packages/frontend",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "ArakiTakaki <araki_takaki@yahoo.co.jp>",
-  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/core#readme",
-  "license": "ISC",
-  "main": "lib/core.js",
+  "homepage": "https://github.com/araki-packages/typescript-monorepo-template/wiki/tree/master/packages/frontend#readme",
+  "license": "MIT",
+  "main": "lib/frontend.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -13,14 +13,20 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/araki-packages/typescript-monorepo-template.git"
   },
   "scripts": {
-    "test": "echo 'test core'"
+    "test": "echo 'test frontend'"
   },
   "bugs": {
     "url": "https://github.com/araki-packages/typescript-monorepo-template/issues"
+  },
+  "devDependencies": {
+    "@araki-packages/core": "^0.0.1"
   }
 }
